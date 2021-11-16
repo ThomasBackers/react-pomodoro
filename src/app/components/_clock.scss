@@ -1,0 +1,32 @@
+@keyframes background-rotation {
+    from {
+        transform: rotate(90deg);
+    }
+    to {
+        transform: rotate(450deg);
+    }
+}
+
+.clock {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid $light-clr;
+    position: relative;
+    &__noon {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        content: '';
+        display: block;
+        background-color: $light-clr;
+        width: 3px;
+        height: 30px;
+    }
+    &__background {
+        width: 100%;
+        transform: rotate(90deg);
+        //animation: background-rotation 60s linear infinite;
+    }
+}

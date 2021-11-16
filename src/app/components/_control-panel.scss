@@ -1,0 +1,7 @@
+.control-panel {
+  display: flex;
+  &__controller {
+    color: $light-clr;
+    font-size: 1.5rem;
+  }
+}
