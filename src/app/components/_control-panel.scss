@@ -1,7 +1,22 @@
 .control-panel {
   display: flex;
   &__controller {
-    color: $light-clr;
     font-size: 1.5rem;
+    .minus,
+    .play-pause,
+    .reset,
+    .plus {
+      box-sizing: content-box;
+      height: 24px;
+      padding: .4rem;
+      background-color: $light-clr;
+      cursor: pointer;
+    }
+    .minus {
+      border-radius: 15px 0 0 15px;
+    }
+    .plus {
+      border-radius: 0 15px 15px 0;
+    }
   }
 }

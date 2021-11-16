@@ -7,10 +7,8 @@ const App = () => {
 		<div className="app">
 			<header></header>
 			<main>
-				<div className="container">
-					<Clock />
-					<ControlPanel />
-				</div>
+				<Clock />
+				<ControlPanel />
 			</main>
 			<footer></footer>
 		</div>
