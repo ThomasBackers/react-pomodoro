@@ -2,7 +2,7 @@ import React from 'react'
 import { useRef, useEffect } from 'react'
 import image from '../img/clock-background.jpg'
 
-const Clock = ({ isPlaying, timer, setTimer, isReset, setIsReset }) => {
+const Clock = ({ isPlaying, timer, setTimer }) => {
   const clockBackground = useRef()
   
   const displayTime = time => {
@@ -16,12 +16,7 @@ const Clock = ({ isPlaying, timer, setTimer, isReset, setIsReset }) => {
     }
     else {
       clockBackground.current.style.animation = ''
-      if (isReset === false) 
-        clockBackground.current.style.transform = `rotate(${90 - timer.seconds * 6 + 'deg'})`
-      else {
-        clockBackground.current.style.transform = 'rotate(90deg)'
-        setIsReset(false)
-      }
+      clockBackground.current.style.transform = `rotate(${90 + timer.seconds * 6 + 'deg'})`
     }
   }, [isPlaying])
 

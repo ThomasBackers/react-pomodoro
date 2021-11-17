@@ -5,11 +5,14 @@ import ControlPanel from './components/ControlPanel'
 
 const App = () => {
   const [isPlaying, setIsPlaying] = useState(false)
-	const [isReset, setIsReset] = useState(false)
 	const [timer, setTimer] = useState({
 		minutes: 25,
 		seconds: 0
 	})
+
+	useEffect(() => {
+		const timerCopy = {...timer}
+	}, [isPlaying])
 
 	return (
 		<div className="app">
@@ -19,14 +22,12 @@ const App = () => {
 					isPlaying={isPlaying}
 					timer={timer}
 					setTimer={setTimer}
-					isReset={isReset}
-					setIsReset={setIsReset}
+				
 				/>
 				<ControlPanel
 					isPlaying={isPlaying}
           setIsPlaying={setIsPlaying}
           setTimer={setTimer}
-					setIsReset={setIsReset}
         />
 			</main>
 			<footer></footer>
