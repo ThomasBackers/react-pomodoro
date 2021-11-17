@@ -3,18 +3,21 @@
 }
 .app {
     background-color: $dark-clr;
-    height: 100vh;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     header {
-        height: 10vh;
+        height: 5rem;
     } 
     main {
-        height: 80vh;
+        margin: auto;
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
+        flex-direction: column;
     }
     footer {
-        height: 10vh;
+        height: 5rem;
     }
+}
+.hidden {
+    display: none;
 }

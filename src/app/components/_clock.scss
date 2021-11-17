@@ -14,6 +14,12 @@
     overflow: hidden;
     border: 1px solid $light-clr;
     position: relative;
+    margin-bottom: 2rem;
+    &__background {
+        width: 100%;
+        transform: rotate(90deg);
+        //animation: background-rotation 60s linear infinite;
+    }
     &__noon {
         position: absolute;
         top: 0;
@@ -24,9 +30,19 @@
         width: 3px;
         height: 30px;
     }
-    &__background {
-        width: 100%;
-        transform: rotate(90deg);
-        //animation: background-rotation 60s linear infinite;
+    &__pupil {
+        position: absolute;
+        top: 45%;
+        left: 45%;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: $light-clr;
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+        output {
+            font-size: 1.2rem;
+        }
     }
 }

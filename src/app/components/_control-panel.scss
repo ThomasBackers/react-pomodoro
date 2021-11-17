@@ -1,5 +1,6 @@
 .control-panel {
   display: flex;
+  margin: 0 auto;
   &__controller {
     font-size: 1.5rem;
     .minus,
@@ -8,15 +9,15 @@
     .plus {
       box-sizing: content-box;
       height: 24px;
-      padding: .4rem;
+      padding: .75rem;
       background-color: $light-clr;
       cursor: pointer;
     }
     .minus {
-      border-radius: 15px 0 0 15px;
+      border-radius: 20px 0 0 20px;
     }
     .plus {
-      border-radius: 0 15px 15px 0;
+      border-radius: 0 20px 20px 0;
     }
   }
 }
