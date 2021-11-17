@@ -16,8 +16,7 @@ const App = () => {
 			<main>
 				<Clock isPlaying={isPlaying} timer={timer} />
 				<ControlPanel
-          isPlaying={isPlaying}
-          setIsPlaying={setIsPlaying} 
+          setIsPlaying={setIsPlaying}
           setTimer={setTimer}
         />
 			</main>
