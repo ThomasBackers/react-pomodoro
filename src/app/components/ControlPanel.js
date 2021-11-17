@@ -2,7 +2,7 @@ import React from 'react'
 import { useRef } from 'react'
 import { FaMinus, FaPlay, FaPause, FaStop, FaPlus } from 'react-icons/fa'
 
-const ControlPanel = ({ isPlaying, setIsPlaying, setTimer }) => {
+const ControlPanel = ({ isPlaying, setIsPlaying, setTimer, setIsReset }) => {
   const playPauseBtn = useRef()
 
   const playPause = () => {
@@ -21,13 +21,14 @@ const ControlPanel = ({ isPlaying, setIsPlaying, setTimer }) => {
   const stop = () => {
     const playIcon = playPauseBtn.current.children[0]
     const pauseIcon = playPauseBtn.current.children[1]
-    setIsPlaying(false)
     playIcon.classList = []
     pauseIcon.classList = ['hidden']
+    setIsPlaying(false)
     setTimer({
       minutes: 25,
       seconds: 0
     })
+    setIsReset(true)
   }
 
   return (
