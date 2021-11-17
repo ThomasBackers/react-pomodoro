@@ -1,20 +1,30 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
+import { useRef, useEffect } from 'react'
 import { FaMinus, FaPlay, FaPause, FaStop, FaPlus } from 'react-icons/fa'
 
-const ControlPanel = ({ setTimer }) => {
-  const [isPlaying, setIsPlaying] = useState(false)
+const ControlPanel = ({ isPlaying, setIsPlaying, setTimer }) => {
+  const playPauseBtn = useRef()
 
-  const play = () => {}
-  const pause = () => {}
+  const play = (playIcon, pauseIcon) => {
+    playIcon.classList = ['hidden']
+    pauseIcon.classList = []
+  }
+  const pause = (playIcon, pauseIcon) => {
+    playIcon.classList = []
+    pauseIcon.classList = ['hidden']
+  }
   const playPause = () => {
+    const playIcon = playPauseBtn.current.children[0]
+    const pauseIcon = playPauseBtn.current.children[1]
     setIsPlaying(!isPlaying)
-    isPlaying ? play() : pause()
+    isPlaying ? play(playIcon, pauseIcon) : pause(playIcon, pauseIcon)
   }
 
   const stop = () => {
+    const playIcon = playPauseBtn.current.children[0]
+    const pauseIcon = playPauseBtn.current.children[1]
     setIsPlaying(false)
-    pause()
+    pause(playIcon, pauseIcon)
     setTimer({
       minutes: 25,
       seconds: 0
@@ -33,6 +43,7 @@ const ControlPanel = ({ setTimer }) => {
           className="play-pause"
           type="button"
           onClick={playPause}
+          ref={playPauseBtn}
         >
           <FaPlay />
           <FaPause className="hidden" />
