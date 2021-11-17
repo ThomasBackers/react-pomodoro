@@ -25,3 +25,4 @@ const Clock = ({ timer }) => {
 }
 
 export default Clock
+ 
