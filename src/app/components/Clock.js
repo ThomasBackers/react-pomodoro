@@ -33,6 +33,16 @@ const Clock = () => {
     } else {
       dialBackground.current.style.animation = ''
       dialBackground.current.style.transform = `rotate(${90 + (time % 60) * 6 + 'deg'})`
+      clockKeyframes.current.textContent = `
+      @keyframes background-rotation {
+        from {
+            transform: rotate(${90 + (time % 60) * 6 + 'deg'});
+        }
+        to {
+            transform: rotate(${(90 + (time % 60) * 6) - 360 + 'deg'});
+        }
+      }
+      `
       clearInterval(interval)
     }
     return () => clearInterval(interval)
@@ -47,6 +57,16 @@ const Clock = () => {
     if (!timeGoesBy && time > 0) {
       setTime(previousTime => previousTime - 1)
       dialBackground.current.style.transform = `rotate(${90 + (time % 60) * 6 + 'deg'})`
+      clockKeyframes.current.textContent = `
+      @keyframes background-rotation {
+        from {
+            transform: rotate(${90 + (time % 60) * 6 + 'deg'});
+        }
+        to {
+            transform: rotate(${(90 + (time % 60) * 6) - 360 + 'deg'});
+        }
+      }
+      `
     }
   }
 
@@ -69,6 +89,16 @@ const Clock = () => {
     if (!timeGoesBy && time < 1500) {
       setTime(previousTime => previousTime + 1)
       dialBackground.current.style.transform = `rotate(${90 + (time % 60) * 6 + 'deg'})`
+      clockKeyframes.current.textContent = `
+      @keyframes background-rotation {
+        from {
+            transform: rotate(${90 + (time % 60) * 6 + 'deg'});
+        }
+        to {
+            transform: rotate(${(90 + (time % 60) * 6) - 360 + 'deg'});
+        }
+      }
+      `
     }
   }
 
