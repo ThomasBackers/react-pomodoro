@@ -1,11 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { FaMinus, FaPlay, FaPause, FaStop, FaPlus } from 'react-icons/fa'
+import Modal from './clock/Modal'
 import dialBackgroundImage from '../img/dial-background.jpg'
 
 const Clock = () => {
   // Constants & variables
   const [time, setTime] = useState(1500)
   const [timeGoesBy, setTimeGoesBy] = useState(false)
+  const [breakTime, setBreakTime] = useState(false)
   const dialBackground = useRef()
   const playPauseBtn = useRef()
   const clockKeyframes = useRef()
@@ -103,13 +105,14 @@ const Clock = () => {
         <img
           className="clock__dial__background"
           src={dialBackgroundImage}
-          alt="Cosmogramma cove, by Flying Lotus"
+          alt="Cosmogramma cover, by Flying Lotus"
           ref={dialBackground}
         />
         <div className="clock__dial__noon"></div>
         <output className="clock__dial__timer">
           {`${displayTime(Math.floor(time / 60))} : ${displayTime(time % 60)}`}
         </output>
+
       </figure>
 
       <ul className="clock__control-panel">
@@ -130,7 +133,7 @@ const Clock = () => {
             ref={playPauseBtn}
             onClick={clickOnPlayPause}
           >
-            <FaPlay className="" />
+            <FaPlay />
             <FaPause className="hidden" />
           </button>
         </li>
@@ -154,8 +157,9 @@ const Clock = () => {
             <FaPlus />
           </button>
         </li>
-
       </ul>
+
+      <Modal />
     </main>
   )
 }

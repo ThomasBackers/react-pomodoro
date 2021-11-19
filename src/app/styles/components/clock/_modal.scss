@@ -1,0 +1,41 @@
+.modal-scene {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  .modal {
+    position: absolute;
+    top: 27.5%;
+    left: 20%;
+    width: 60%;
+    &__top-bar {
+      background-color: $light-clr;
+      display: flex;
+      justify-content: flex-end;
+      padding: .1rem .5rem;
+      &__close-btn {
+        cursor: pointer;
+        font-size: 1.1rem;
+        font-weight: bold;
+      }
+    }
+    &__content {
+      text-align: center;
+      background-color: $dark-clr;
+      border: 1px solid $light-clr;
+      padding: .4rem 0;
+      &__message {
+        color: $light-clr;
+        cursor: default;
+        margin-bottom: .5rem;
+      }
+      &__take-a-break-btn {
+        cursor: pointer;
+        background-color: $light-clr;
+        padding: .3rem .6rem .4rem .6rem;
+        border-radius: 10px;
+        font-weight: bold;
+        font-size: .85rem;
+      }
+    }
+  }
+}
