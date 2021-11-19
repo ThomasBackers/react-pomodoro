@@ -1,12 +1,3 @@
-@keyframes background-rotation {
-  from {
-      transform: rotate(90deg);
-  }
-  to {
-      transform: rotate(-270deg);
-  }
-}
-
 .clock {
   margin: auto;
   display: flex;

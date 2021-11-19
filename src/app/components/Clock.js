@@ -5,9 +5,23 @@ import dialBackgroundImage from '../img/dial-background.jpg'
 const Clock = () => {
   const [time, setTime] = useState(1500)
   const [timeGoesBy, setTimeGoesBy] = useState(false)
-  const clockKeyframes = useRef()
   const dialBackground = useRef()
   const playPauseBtn = useRef()
+  const clockKeyframes = useRef()
+
+  useEffect(() => {
+    clockKeyframes.current.textContent = `
+    @keyframes background-rotation {
+      from {
+          transform: rotate(90deg);
+      }
+      to {
+          transform: rotate(-270deg);
+      }
+    }
+    `
+    document.querySelector('head').appendChild(clockKeyframes.current)
+  }, [])
 
   useEffect(() => {
     let interval = null
