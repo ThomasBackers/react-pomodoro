@@ -5,6 +5,7 @@ import dialBackgroundImage from '../img/dial-background.jpg'
 const Clock = () => {
   const [time, setTime] = useState(1500)
   const [timeGoesBy, setTimeGoesBy] = useState(false)
+  const clockKeyframes = useRef()
   const dialBackground = useRef()
   const playPauseBtn = useRef()
 
@@ -40,11 +41,12 @@ const Clock = () => {
     setTime(1500)
     playPauseBtn.current.children[0].classList = []
     playPauseBtn.current.children[1].classList = ['hidden']
+    dialBackground.current.style.transform = 'rotate(90deg)'
   }
 
   return (
     <main className="clock">
-      <style id="clock-keyframes"></style>
+      <style id="clock-keyframes" ref={clockKeyframes}></style>
 
       <figure className="clock__dial">
         <img
