@@ -29,6 +29,10 @@ const Clock = () => {
     else return time
   }
 
+  const clickOnMinus = () => {
+    if (!timeGoesBy && time > 0) setTime(previousTime => previousTime - 1)
+  }
+
   const clickOnPlayPause = () => {
     setTimeGoesBy(!timeGoesBy)
     for (const child of playPauseBtn.current.children) {
@@ -42,6 +46,10 @@ const Clock = () => {
     playPauseBtn.current.children[0].classList = []
     playPauseBtn.current.children[1].classList = ['hidden']
     dialBackground.current.style.transform = 'rotate(90deg)'
+  }
+
+  const clickOnPlus = () => {
+    if (!timeGoesBy && time < 1500) setTime(previousTime => previousTime + 1)
   }
 
   return (
@@ -63,7 +71,11 @@ const Clock = () => {
 
       <ul className="clock__control-panel">
         <li className="clock__control-panel__controller">
-          <button className="minus-btn" type="button">
+          <button
+            className="minus-btn"
+            type="button"
+            onClick={clickOnMinus}
+          >
             <FaMinus />
           </button>
         </li>
@@ -91,7 +103,11 @@ const Clock = () => {
         </li>
 
         <li className="clock__control-panel__controller">
-          <button className="plus-btn" type="button">
+          <button
+            className="plus-btn"
+            type="button"
+            onClick={clickOnPlus}
+          >
             <FaPlus />
           </button>
         </li>
