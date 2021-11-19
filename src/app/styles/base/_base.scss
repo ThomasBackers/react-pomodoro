@@ -1,8 +1,6 @@
-:root {
-    font-size: 16px;
-}
-.app {
+#root {
     background-color: $dark-clr;
+    font-size: 16px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;

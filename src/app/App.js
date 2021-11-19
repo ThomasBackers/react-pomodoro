@@ -1,38 +1,17 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
+import Header from './components/Header'
 import Clock from './components/Clock'
-import ControlPanel from './components/ControlPanel'
+import Footer from './components/Footer'
+import './styles/main.scss'
 
 const App = () => {
-  const [isPlaying, setIsPlaying] = useState(false)
-	const [timer, setTimer] = useState({
-		minutes: 25,
-		seconds: 0
-	})
-
-	useEffect(() => {
-		const timerCopy = {...timer}
-	}, [isPlaying])
-
-	return (
-		<div className="app">
-			<header></header>
-			<main>
-				<Clock
-					isPlaying={isPlaying}
-					timer={timer}
-					setTimer={setTimer}
-				
-				/>
-				<ControlPanel
-					isPlaying={isPlaying}
-          setIsPlaying={setIsPlaying}
-          setTimer={setTimer}
-        />
-			</main>
-			<footer></footer>
-		</div>
-	)
+  return (
+    <>
+    <Header />
+    <Clock />
+    <Footer />
+    </>
+  )
 }
 
 export default App
