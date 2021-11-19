@@ -8,6 +8,9 @@
 }
 
 .clock {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
   &__dial {
     width: 300px;
     height: 300px;

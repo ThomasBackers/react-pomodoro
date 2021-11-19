@@ -4,17 +4,6 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    header {
-        height: 5rem;
-    } 
-    main {
-        margin: auto;
-        display: flex;
-        flex-direction: column;
-    }
-    footer {
-        height: 5rem;
-    }
 }
 .hidden {
     display: none;

@@ -7,9 +7,9 @@ import './styles/main.scss'
 const App = () => {
   return (
     <>
-    <Header />
-    <Clock />
-    <Footer />
+      <Header />
+      <Clock />
+      <Footer />
     </>
   )
 }
