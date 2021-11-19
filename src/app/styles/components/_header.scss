@@ -1,3 +1,10 @@
-header {
+.header {
   height: 5rem;
+  display: flex;
+  &__heading {
+    color: $light-clr;
+    font-size: 1.7rem; 
+    font-weight: bold;
+    margin: auto;
+  }
 }

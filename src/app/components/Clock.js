@@ -83,6 +83,16 @@ const Clock = () => {
     playPauseBtn.current.children[0].classList = []
     playPauseBtn.current.children[1].classList = ['hidden']
     dialBackground.current.style.transform = 'rotate(90deg)'
+    clockKeyframes.current.textContent = `
+      @keyframes background-rotation {
+        from {
+            transform: rotate(90deg);
+        }
+        to {
+            transform: rotate(-270deg);
+        }
+      }
+      `
   }
 
   const clickOnPlus = () => {
@@ -110,7 +120,7 @@ const Clock = () => {
         <img
           className="clock__dial__background"
           src={dialBackgroundImage}
-          alt=""
+          alt="Cosmogramma cove, by Flying Lotus"
           ref={dialBackground}
         />
         <div className="clock__dial__noon"></div>

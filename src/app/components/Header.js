@@ -2,7 +2,8 @@ import React from 'react'
 
 const Header = () => {
   return (
-    <header>
+    <header className="header">
+      <h1 className="header__heading">Pomodoro Eye</h1>
     </header>
   )
 }

@@ -1,3 +1,8 @@
 footer {
   height: 5rem;
+  display: flex;
+  &__heading {
+    color: $light-clr;
+    margin: auto;
+  }
 }
