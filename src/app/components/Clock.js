@@ -3,12 +3,14 @@ import { FaMinus, FaPlay, FaPause, FaStop, FaPlus } from 'react-icons/fa'
 import dialBackgroundImage from '../img/dial-background.jpg'
 
 const Clock = () => {
+  // Constants & variables
   const [time, setTime] = useState(1500)
   const [timeGoesBy, setTimeGoesBy] = useState(false)
   const dialBackground = useRef()
   const playPauseBtn = useRef()
   const clockKeyframes = useRef()
 
+  // Style tag presets
   useEffect(() => {
     clockKeyframes.current.textContent = `
     @keyframes background-rotation {
@@ -23,14 +25,18 @@ const Clock = () => {
     document.querySelector('head').appendChild(clockKeyframes.current)
   }, [])
 
+  // What happen when timeGoesBy change
   useEffect(() => {
     let interval = null
     if (timeGoesBy) {
+      // graphic part
       dialBackground.current.style.animation = 'background-rotation 60s .4s linear infinite'
+      // timer part
       interval = setInterval(() => {
         setTime(previousTime => previousTime - 1)
       }, 1000)
     } else {
+      // graphic part
       dialBackground.current.style.animation = ''
       dialBackground.current.style.transform = `rotate(${90 + (time % 60) * 6 + 'deg'})`
       clockKeyframes.current.textContent = `
@@ -43,16 +49,19 @@ const Clock = () => {
         }
       }
       `
+      // timer part
       clearInterval(interval)
     }
     return () => clearInterval(interval)
   }, [timeGoesBy])
 
+  // A small function to display time correctly
   const displayTime = time => {
     if (time < 10) return `0${time}`
     else return time
   }
 
+  // Here are event listeners
   const clickOnMinus = () => {
     if (!timeGoesBy && time > 0) setTime(previousTime => previousTime - 60)
   }
