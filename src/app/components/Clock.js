@@ -54,20 +54,7 @@ const Clock = () => {
   }
 
   const clickOnMinus = () => {
-    if (!timeGoesBy && time > 0) {
-      setTime(previousTime => previousTime - 1)
-      dialBackground.current.style.transform = `rotate(${84 + (time % 60) * 6 + 'deg'})`
-      clockKeyframes.current.textContent = `
-      @keyframes background-rotation {
-        from {
-            transform: rotate(${84 + (time % 60) * 6 + 'deg'});
-        }
-        to {
-            transform: rotate(${(84 + (time % 60) * 6) - 360 + 'deg'});
-        }
-      }
-      `
-    }
+    if (!timeGoesBy && time > 0) setTime(previousTime => previousTime - 60)
   }
 
   const clickOnPlayPause = () => {
@@ -96,20 +83,7 @@ const Clock = () => {
   }
 
   const clickOnPlus = () => {
-    if (!timeGoesBy && time < 1500) {
-      setTime(previousTime => previousTime + 1)
-      dialBackground.current.style.transform = `rotate(${96 + (time % 60) * 6 + 'deg'})`
-      clockKeyframes.current.textContent = `
-      @keyframes background-rotation {
-        from {
-            transform: rotate(${96 + (time % 60) * 6 + 'deg'});
-        }
-        to {
-            transform: rotate(${(96 + (time % 60) * 6) - 360 + 'deg'});
-        }
-      }
-      `
-    }
+    if (!timeGoesBy && time < 1500) setTime(previousTime => previousTime + 60)
   }
 
   return (
