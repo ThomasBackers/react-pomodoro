@@ -49,7 +49,7 @@ const Modal = ({ breakTime, setBreakTime, setTime, setTimeGoesBy, playPauseBtn }
     </div>
   )
 }
-
+// nice stuff to re-use
 Modal.propTypes = {
   breakTime: PropTypes.bool.isRequired,
   setBreakTime: PropTypes.func.isRequired,
