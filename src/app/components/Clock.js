@@ -57,15 +57,50 @@ const Clock = () => {
     return () => clearInterval(interval)
   }, [timeGoesBy])
 
+  useEffect(() => {
+    if (time <= 0) {
+      setTimeGoesBy(false)
+      setBreakTime(true)
+      setTime(0)
+      dialBackground.current.style.transform = 'rotate(90deg)'
+      clockKeyframes.current.textContent = `
+      @keyframes background-rotation {
+        from {
+            transform: rotate(90deg);
+        }
+        to {
+            transform: rotate(-270deg);
+        }
+      }
+      `
+      playPauseBtn.current.children[0].classList = []
+      playPauseBtn.current.children[1].classList = ['hidden']
+    }
+  }, [time])
+
   // A small function to display time correctly
   const displayTime = time => {
     if (time < 10) return `0${time}`
     else return time
   }
 
-  // Here are event listeners
+  // Here are event listeners callbacks
   const clickOnMinus = () => {
-    if (!timeGoesBy && time > 0) setTime(previousTime => previousTime - 60)
+    if (!timeGoesBy && time > 59) setTime(previousTime => previousTime - 60)
+    else {
+      setTime(0)
+      dialBackground.current.style.transform = 'rotate(90deg)'
+      clockKeyframes.current.textContent = `
+      @keyframes background-rotation {
+        from {
+            transform: rotate(90deg);
+        }
+        to {
+            transform: rotate(-270deg);
+        }
+      }
+      `
+    }
   }
 
   const clickOnPlayPause = () => {
@@ -94,9 +129,24 @@ const Clock = () => {
   }
 
   const clickOnPlus = () => {
-    if (!timeGoesBy && time < 1500) setTime(previousTime => previousTime + 60)
+    if (!timeGoesBy && time < 1441) setTime(previousTime => previousTime + 60)
+    else {
+      setTime(1500)
+      dialBackground.current.style.transform = 'rotate(90deg)'
+      clockKeyframes.current.textContent = `
+      @keyframes background-rotation {
+        from {
+            transform: rotate(90deg);
+        }
+        to {
+            transform: rotate(-270deg);
+        }
+      }
+      `
+    }
   }
 
+  // JSX
   return (
     <main className="clock">
       <style id="clock-keyframes" ref={clockKeyframes}></style>
@@ -159,7 +209,13 @@ const Clock = () => {
         </li>
       </ul>
 
-      <Modal />
+      <Modal
+        breakTime={breakTime}
+        setBreakTime={setBreakTime}
+        setTime={setTime}
+        setTimeGoesBy={setTimeGoesBy}
+        playPauseBtn={playPauseBtn}
+      />
     </main>
   )
 }
