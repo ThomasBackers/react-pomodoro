@@ -87,7 +87,7 @@ const Clock = () => {
   // Here are event listeners callbacks
   const clickOnMinus = () => {
     if (!timeGoesBy && time > 59) setTime(previousTime => previousTime - 60)
-    else {
+    else if (!timeGoesBy) {
       setTime(0)
       dialBackground.current.style.transform = 'rotate(90deg)'
       clockKeyframes.current.textContent = `
@@ -130,7 +130,7 @@ const Clock = () => {
 
   const clickOnPlus = () => {
     if (!timeGoesBy && time < 1441) setTime(previousTime => previousTime + 60)
-    else {
+    else if (!timeGoesBy) {
       setTime(1500)
       dialBackground.current.style.transform = 'rotate(90deg)'
       clockKeyframes.current.textContent = `
