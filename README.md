@@ -10,4 +10,4 @@ A pomodoro timer made to be productive the right way:
 
 *MINUS/PLUS: when the timer is not running minutes can be updated*
 
-*BREAK TIME ALERT: when the timer reaches zero a modal comes us*
+*BREAK TIME ALERT: when the timer reaches zero a modal comes up*
